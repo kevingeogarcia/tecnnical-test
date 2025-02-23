@@ -17,7 +17,6 @@ public class FakeStoreProductServiceImpl {
 
     public List<Products> getAllProducts(Integer limit) {
         List<Products> ls  =  new ArrayList<>();
-        System.out.println(limit);
         ls = fakStoreApiClient.getAllProduct(limit);
         return ls;
     }
