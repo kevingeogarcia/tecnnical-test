@@ -30,6 +30,8 @@ public class Products implements Serializable {
     private String description;
     private String category;
     private String image;
+    private Integer quantity;
+
 
 }
 

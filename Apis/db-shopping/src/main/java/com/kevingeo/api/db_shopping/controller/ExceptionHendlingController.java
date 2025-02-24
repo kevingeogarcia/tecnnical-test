@@ -2,6 +2,7 @@ package com.kevingeo.api.db_shopping.controller;
 
 import com.kevingeo.api.db_shopping.exception.BussinesException;
 import com.kevingeo.api.db_shopping.exception.NotFoundExceptionApi;
+import feign.FeignException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,6 +24,14 @@ public class ExceptionHendlingController {
 
     @ExceptionHandler(value = {Exception.class})
     public ResponseEntity<String> customException(Exception ex) {
+        ex.printStackTrace();
         return new ResponseEntity<String>("An error occurred while processing the request", HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = {FeignException.NotFound.class})
+    public ResponseEntity<String> customException(FeignException.NotFound ex) {
+        ex.printStackTrace();
+        return new ResponseEntity<String>("The shopping cart is empty", HttpStatus.BAD_REQUEST);
+    }
+
 }

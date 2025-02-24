@@ -35,5 +35,11 @@ public class Product {
     @Column(name = "product_image")
     private String productImage;
 
+    @Transient
+    private Integer quantity;
+
+    @Transient
+    private Long userId;
+
 }
 

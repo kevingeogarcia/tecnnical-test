@@ -1,18 +1,17 @@
 package com.kevingeo.api.db_shopping.service.impl;
 
-import com.kevingeo.api.db_shopping.dto.CustomerDto;
-import com.kevingeo.api.db_shopping.dto.OrderDetailDto;
-import com.kevingeo.api.db_shopping.dto.OrderDto;
-import com.kevingeo.api.db_shopping.dto.OrderProductDto;
+import com.kevingeo.api.db_shopping.dto.*;
 import com.kevingeo.api.db_shopping.entity.Customer;
 import com.kevingeo.api.db_shopping.entity.CustomerOrder;
 import com.kevingeo.api.db_shopping.entity.OrderDetail;
 import com.kevingeo.api.db_shopping.entity.Product;
+import com.kevingeo.api.db_shopping.exception.BussinesException;
 import com.kevingeo.api.db_shopping.exception.NotFoundExceptionApi;
 import com.kevingeo.api.db_shopping.repository.CustomerOrderRepository;
 import com.kevingeo.api.db_shopping.repository.CustomerRepository;
 import com.kevingeo.api.db_shopping.repository.OrderDetailRepository;
 import com.kevingeo.api.db_shopping.repository.ProductRepository;
+import com.kevingeo.api.db_shopping.service.CartService;
 import com.kevingeo.api.db_shopping.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +39,9 @@ public class OrderServiceImpl implements OrdersService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private CartService cartService;
+
     @Override
     public CustomerOrder saveOrder(CustomerOrder order) {
         return orderRepository.save(order);
@@ -59,7 +61,12 @@ public class OrderServiceImpl implements OrdersService {
 
     @Override
     public CustomerOrder registerOrder(OrderDto dto) {
+
         AtomicReference<BigDecimal> totalPrice = new AtomicReference<>(new BigDecimal(0));
+        List<ProductsShoppingCartDto> shoppingCartProduct = cartService.findByUserId(dto.getCustomer().getCustomerId());
+        if (shoppingCartProduct.isEmpty()) {
+            throw new BussinesException("the shopping cart is empy");
+        }
         Customer customer = Customer.builder()
                 .customerId(dto.getCustomer().getCustomerId()).build();
         CustomerOrder customerOrder = CustomerOrder.builder()
@@ -68,14 +75,15 @@ public class OrderServiceImpl implements OrdersService {
                 .customer(customer).build();
         customerOrder = orderRepository.save(customerOrder);
         Long orderId = customerOrder.getCustomerOrderId();
-        dto.getDetail().forEach(detail -> {
+
+        shoppingCartProduct.forEach(detail -> {
             Product productDetail = Product.builder()
-                    .productId(detail.getProduct().getProductId())
-                    .productCategory(detail.getProduct().getProductCategory())
-                    .productImage(detail.getProduct().getProductImage())
-                    .productDescription(detail.getProduct().getProductDescription())
-                    .productTitle(detail.getProduct().getProductTitle())
-                    .productPrice(detail.getProduct().getProductPrice())
+                    .productId(detail.getIdProduct())
+                    .productCategory(detail.getCategory())
+                    .productImage(detail.getImage())
+                    .productDescription(detail.getDescription())
+                    .productTitle(detail.getTitle())
+                    .productPrice(detail.getPrice())
                     .build();
             totalPrice.set(totalPrice.get().add(productDetail.getProductPrice().multiply(new BigDecimal(detail.getQuantity()))));
             OrderDetail orderDetail = OrderDetail.builder()

@@ -25,6 +25,7 @@ public class ProductController {
 
     @GetMapping("/connector-api")
     public List<Product> getAll(@RequestParam(name = "limit", defaultValue = "20") Integer limit) {
+        System.out.println(limit);
         return productService.getAllDto(limit);
     }
 
