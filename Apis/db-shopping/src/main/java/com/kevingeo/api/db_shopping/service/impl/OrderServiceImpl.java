@@ -18,8 +18,10 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 @Transactional
@@ -57,6 +59,7 @@ public class OrderServiceImpl implements OrdersService {
 
     @Override
     public CustomerOrder registerOrder(OrderDto dto) {
+        AtomicReference<BigDecimal> totalPrice = new AtomicReference<>(new BigDecimal(0));
         Customer customer = Customer.builder()
                 .customerId(dto.getCustomer().getCustomerId()).build();
         CustomerOrder customerOrder = CustomerOrder.builder()
@@ -75,7 +78,7 @@ public class OrderServiceImpl implements OrdersService {
                     .productTitle(detail.getProduct().getProductTitle())
                     .productPrice(detail.getProduct().getProductPrice())
                     .build();
-
+            totalPrice.set(totalPrice.get().add(productDetail.getProductPrice()));
             OrderDetail orderDetail = OrderDetail.builder()
                     .customerOrderId(orderId)
                     .quantity(detail.getQuantity())
@@ -83,7 +86,8 @@ public class OrderServiceImpl implements OrdersService {
 
             saveOrderDetail(orderDetail);
         });
-        return customerOrder;
+        customerOrder.setCustomerOrderPrice(totalPrice.get());
+        return orderRepository.save(customerOrder);
     }
 
 
