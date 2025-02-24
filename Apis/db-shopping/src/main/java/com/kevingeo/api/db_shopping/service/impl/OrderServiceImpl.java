@@ -68,7 +68,6 @@ public class OrderServiceImpl implements OrdersService {
                 .customer(customer).build();
         customerOrder = orderRepository.save(customerOrder);
         Long orderId = customerOrder.getCustomerOrderId();
-        System.out.println(dto.getDetail().size());
         dto.getDetail().forEach(detail -> {
             Product productDetail = Product.builder()
                     .productId(detail.getProduct().getProductId())
@@ -78,7 +77,7 @@ public class OrderServiceImpl implements OrdersService {
                     .productTitle(detail.getProduct().getProductTitle())
                     .productPrice(detail.getProduct().getProductPrice())
                     .build();
-            totalPrice.set(totalPrice.get().add(productDetail.getProductPrice()));
+            totalPrice.set(totalPrice.get().add(productDetail.getProductPrice().multiply(new BigDecimal(detail.getQuantity()))));
             OrderDetail orderDetail = OrderDetail.builder()
                     .customerOrderId(orderId)
                     .quantity(detail.getQuantity())
