@@ -3,7 +3,8 @@ package com.kevingeo.api.db_shopping.service;
 import com.kevingeo.api.db_shopping.dto.OrderDto;
 import com.kevingeo.api.db_shopping.entity.CustomerOrder;
 import com.kevingeo.api.db_shopping.entity.OrderDetail;
-import org.springframework.data.crossstore.ChangeSetPersister;
+
+import java.util.List;
 
 public interface OrdersService {
 
@@ -34,5 +35,13 @@ public interface OrdersService {
      */
     CustomerOrder registerOrder(OrderDto dto);
 
-    OrderDto getRegisterOrder(Long dto) throws ChangeSetPersister.NotFoundException;
+    /**
+     * method to get order by Id
+     *
+     * @param dto
+     * @return
+     */
+    OrderDto getRegisterOrder(Long dto);
+
+    List<OrderDto> getRegisterOrders();
 }

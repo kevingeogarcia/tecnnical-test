@@ -15,7 +15,6 @@ import com.kevingeo.api.db_shopping.repository.OrderDetailRepository;
 import com.kevingeo.api.db_shopping.repository.ProductRepository;
 import com.kevingeo.api.db_shopping.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -92,7 +91,7 @@ public class OrderServiceImpl implements OrdersService {
 
 
     @Override
-    public OrderDto getRegisterOrder(Long orderId) throws ChangeSetPersister.NotFoundException {
+    public OrderDto getRegisterOrder(Long orderId) {
 
         List<OrderDetailDto> lsDetail = new ArrayList<>();
         CustomerOrder customerOrder = orderRepository.findById(orderId).orElseThrow(() -> new NotFoundExceptionApi("there are no records for the orderid: " + orderId));
@@ -134,5 +133,15 @@ public class OrderServiceImpl implements OrdersService {
         });
         response.setDetail(lsDetail);
         return response;
+    }
+
+
+    @Override
+    public List<OrderDto> getRegisterOrders() {
+        List<OrderDto> lsResponseOrderDtoList = new ArrayList<>();
+        orderRepository.findAll().forEach(order -> {
+            lsResponseOrderDtoList.add(getRegisterOrder(order.getCustomerOrderId()));
+        });
+        return lsResponseOrderDtoList;
     }
 }
