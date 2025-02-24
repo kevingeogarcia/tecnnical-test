@@ -26,9 +26,8 @@ public class OrderDetail {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Product product;
 
-    @JoinColumn(name = "customer_order_id", referencedColumnName = "customer_order_id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private CustomerOrder customerOrder;
+    @Column(name = "customer_order_id")
+    private Long customerOrderId;
 
 
 }

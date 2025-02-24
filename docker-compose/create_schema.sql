@@ -12,7 +12,7 @@ CREATE TABLE customer
 
 CREATE TABLE product
 (
-    product_id          bigserial NOT NULL,
+    product_id          bigint NOT NULL,
 	product_title       varchar(200) NULL,
     product_price       double precision NOT NULL,
 	product_description varchar(500),

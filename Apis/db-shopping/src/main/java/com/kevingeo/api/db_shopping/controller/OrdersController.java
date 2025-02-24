@@ -1,6 +1,7 @@
 package com.kevingeo.api.db_shopping.controller;
 
 import com.kevingeo.api.db_shopping.entity.CustomerOrder;
+import com.kevingeo.api.db_shopping.entity.OrderDetail;
 import com.kevingeo.api.db_shopping.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,4 +23,13 @@ public class OrdersController {
         return ordersService.saveOrder(order);
 
     }
+
+    @PostMapping("/detail")
+    OrderDetail saveOrderDetail(@RequestBody OrderDetail detail) {
+        return ordersService.saveOrderDetail(detail);
+
+    }
+
+
+
 }

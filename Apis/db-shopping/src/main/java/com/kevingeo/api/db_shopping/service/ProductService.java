@@ -7,4 +7,6 @@ import java.util.List;
 public interface ProductService {
 
     List<Product> getAll();
+
+    List<Product> getAllDto(Integer limit);
 }

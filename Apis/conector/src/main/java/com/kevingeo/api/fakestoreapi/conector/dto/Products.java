@@ -18,7 +18,7 @@ public class Products implements Serializable {
     private static final long serialVersionUID = -7817224776021724382L;
 
 
-    private String id;
+    private Long id;
     private String title;
     private BigDecimal price;
     private String description;
