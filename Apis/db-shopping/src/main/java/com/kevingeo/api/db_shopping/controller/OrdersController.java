@@ -1,13 +1,12 @@
 package com.kevingeo.api.db_shopping.controller;
 
+import com.kevingeo.api.db_shopping.dto.OrderDto;
 import com.kevingeo.api.db_shopping.entity.CustomerOrder;
 import com.kevingeo.api.db_shopping.entity.OrderDetail;
 import com.kevingeo.api.db_shopping.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/order")
@@ -30,6 +29,18 @@ public class OrdersController {
 
     }
 
+
+    @PostMapping("/register")
+    CustomerOrder registerOrder(@RequestBody OrderDto dto) {
+        return ordersService.registerOrder(dto);
+
+    }
+
+    @GetMapping("/register/{orderId}")
+    OrderDto registerOrder(@PathVariable(name = "orderId") Long orderId) throws ChangeSetPersister.NotFoundException {
+        return ordersService.getRegisterOrder(orderId);
+
+    }
 
 
 }
