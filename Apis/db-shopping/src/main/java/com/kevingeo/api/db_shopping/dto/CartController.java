@@ -18,13 +18,19 @@ public class CartController {
 
     @PostMapping
     public ProductsShoppingCartDto save(@RequestBody Product product) {
-        return  cartService.save(product);
+        return cartService.save(product);
     }
 
 
     @GetMapping("user/{userId}")
     public List<ProductsShoppingCartDto> findById(@PathVariable(name = "userId") Long userId) {
         return cartService.findByUserId(userId);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteById(@PathVariable(name = "id") String id) {
+        cartService.deleteById(id);
+        return "deleted...";
     }
 
 

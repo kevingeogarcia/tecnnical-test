@@ -1,6 +1,5 @@
 package com.kevingeo.api.db_shopping.service;
 
-import com.kevingeo.api.db_shopping.dto.ProductsDto;
 import com.kevingeo.api.db_shopping.dto.ProductsShoppingCartDto;
 import com.kevingeo.api.db_shopping.entity.Product;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,4 +15,5 @@ public interface CartService {
 
     public List<ProductsShoppingCartDto> findByUserId(@PathVariable(name = "userId") Long userId);
 
+    public String deleteById(String id);
 }

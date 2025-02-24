@@ -34,4 +34,9 @@ public class CartServiceImpl implements CartService {
                 .build();
         return productApiClient.save(productsShoppingCartDto);
     }
+
+    @Override
+    public String deleteById(String id) {
+        return productApiClient.deleteById(id);
+    }
 }
