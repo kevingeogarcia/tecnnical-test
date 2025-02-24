@@ -8,6 +8,7 @@ import com.kevingeo.api.db_shopping.entity.Customer;
 import com.kevingeo.api.db_shopping.entity.CustomerOrder;
 import com.kevingeo.api.db_shopping.entity.OrderDetail;
 import com.kevingeo.api.db_shopping.entity.Product;
+import com.kevingeo.api.db_shopping.exception.NotFoundExceptionApi;
 import com.kevingeo.api.db_shopping.repository.CustomerOrderRepository;
 import com.kevingeo.api.db_shopping.repository.CustomerRepository;
 import com.kevingeo.api.db_shopping.repository.OrderDetailRepository;
@@ -94,8 +95,8 @@ public class OrderServiceImpl implements OrdersService {
     public OrderDto getRegisterOrder(Long orderId) throws ChangeSetPersister.NotFoundException {
 
         List<OrderDetailDto> lsDetail = new ArrayList<>();
-        CustomerOrder customerOrder = orderRepository.findById(orderId).orElseThrow(ChangeSetPersister.NotFoundException::new);
-        Customer customer = customerRepository.findById(customerOrder.getCustomer().getCustomerId()).orElseThrow(ChangeSetPersister.NotFoundException::new);
+        CustomerOrder customerOrder = orderRepository.findById(orderId).orElseThrow(() -> new NotFoundExceptionApi("there are no records for the orderid: " + orderId));
+        Customer customer = customerRepository.findById(customerOrder.getCustomer().getCustomerId()).orElseThrow(() -> new NotFoundExceptionApi("Not register customer to: " + customerOrder.getCustomer().getCustomerId()));
         CustomerDto customerDto = CustomerDto.builder()
                 .customerDui(customer.getCustomerDui())
                 .customerAddress(customer.getCustomerAddress())
