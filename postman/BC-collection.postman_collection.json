@@ -510,7 +510,7 @@
 							]
 						},
 						{
-							"name": "connector-api",
+							"name": "connector-api-shopping cart",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -671,7 +671,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 2,\r\n        \"customerName\": \"Kevin Geovani \",\r\n        \"customerAddress\": \"Ciudad Delgado\",\r\n        \"customerDui\": \"000093\",\r\n        \"customerNumber\": \"8888888\"\r\n    },\r\n    \"detail\": [\r\n        {\r\n            \"quantity\": 6,\r\n            \"product\": {\r\n                \"productId\": 19,\r\n                \"productTitle\": \"Opna Women's Short Sleeve Moisture\",\r\n                \"productPrice\": 7.95,\r\n                \"productDescription\": \"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort\",\r\n                \"productCategory\": \"women's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg\"\r\n            }\r\n        },\r\n        {\r\n            \"quantity\": 4,\r\n            \"product\": {\r\n                \"productId\": 20,\r\n                \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\r\n                \"productPrice\": 12.99,\r\n                \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\r\n                \"productCategory\": \"women's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 1,\r\n        \"customerName\": \"Kevin Geovani \",\r\n        \"customerAddress\": \"Ciudad Delgado\",\r\n        \"customerDui\": \"000093\",\r\n        \"customerNumber\": \"8888888\"\r\n    }\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -764,7 +764,7 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8092/order/register/11",
+									"raw": "localhost:8092/order/register/13",
 									"host": [
 										"localhost"
 									],
@@ -772,7 +772,256 @@
 									"path": [
 										"order",
 										"register",
-										"11"
+										"13"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "get order complete",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 1\r\n    },\r\n    \"detail\": [\r\n        {\r\n            \"quantity\": 4,\r\n            \"customerOrderId\": 1,\r\n            \"product\": {\r\n                \"productId\": 2,\r\n                \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n                \"productPrice\": 22.3,\r\n                \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\r\n                \"productCategory\": \"men's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\r\n            }\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8092/order/register/11",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"order",
+												"register",
+												"11"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Feb 2025 05:37:00 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"customerOrderId\": 11,\n    \"customerOrderDate\": \"2024-01-01\",\n    \"customerOrderPrice\": 99.66,\n    \"customer\": {\n        \"customerId\": 2,\n        \"customerName\": \"Kevin Geovani \",\n        \"customerAddress\": \"Ciudad Delgado\",\n        \"customerDui\": \"000093\",\n        \"customerNumber\": \"8888888\"\n    },\n    \"detail\": [\n        {\n            \"orderDetailId\": 10,\n            \"quantity\": 6,\n            \"product\": {\n                \"productId\": 19,\n                \"productTitle\": \"Opna Women's Short Sleeve Moisture\",\n                \"productPrice\": 7.95,\n                \"productDescription\": \"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort\",\n                \"productCategory\": \"women's clothing\",\n                \"productImage\": \"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg\"\n            },\n            \"customerOrderId\": 11\n        },\n        {\n            \"orderDetailId\": 11,\n            \"quantity\": 4,\n            \"product\": {\n                \"productId\": 20,\n                \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n                \"productPrice\": 12.99,\n                \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n                \"productCategory\": \"women's clothing\",\n                \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\n            },\n            \"customerOrderId\": 11\n        }\n    ]\n}"
+								},
+								{
+									"name": "Error Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 1\r\n    },\r\n    \"detail\": [\r\n        {\r\n            \"quantity\": 4,\r\n            \"customerOrderId\": 1,\r\n            \"product\": {\r\n                \"productId\": 2,\r\n                \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n                \"productPrice\": 22.3,\r\n                \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\r\n                \"productCategory\": \"men's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\r\n            }\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8092/order/register/115",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"order",
+												"register",
+												"115"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain;charset=UTF-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "41"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Feb 2025 07:47:51 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "there are no records for the orderid: 115"
+								}
+							]
+						},
+						{
+							"name": "get register orders",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 1\r\n    },\r\n    \"detail\": [\r\n        {\r\n            \"quantity\": 4,\r\n            \"customerOrderId\": 1,\r\n            \"product\": {\r\n                \"productId\": 2,\r\n                \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n                \"productPrice\": 22.3,\r\n                \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\r\n                \"productCategory\": \"men's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8092/order/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"order",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "orders",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"customerOrderDate\": \"2024-01-01\",\r\n    \"customerOrderPrice\": 22.33,\r\n    \"customer\": {\r\n        \"customerId\": 1\r\n    },\r\n    \"detail\": [\r\n        {\r\n            \"quantity\": 4,\r\n            \"customerOrderId\": 1,\r\n            \"product\": {\r\n                \"productId\": 2,\r\n                \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\r\n                \"productPrice\": 22.3,\r\n                \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\r\n                \"productCategory\": \"men's clothing\",\r\n                \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\r\n            }\r\n        }\r\n    ]\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "localhost:8092/order/register",
+											"host": [
+												"localhost"
+											],
+											"port": "8092",
+											"path": [
+												"order",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 24 Feb 2025 07:57:04 GMT"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=60"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"customerOrderId\": 1,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 1,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 2,\n                    \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\n                    \"productPrice\": 22.3,\n                    \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\n                    \"productCategory\": \"men's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\n                },\n                \"customerOrderId\": 1\n            }\n        ]\n    },\n    {\n        \"customerOrderId\": 2,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": []\n    },\n    {\n        \"customerOrderId\": 3,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": []\n    },\n    {\n        \"customerOrderId\": 4,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": []\n    },\n    {\n        \"customerOrderId\": 5,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": []\n    },\n    {\n        \"customerOrderId\": 6,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 22.33,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 2,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 2,\n                    \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\n                    \"productPrice\": 22.3,\n                    \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\n                    \"productCategory\": \"men's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\n                },\n                \"customerOrderId\": 6\n            }\n        ]\n    },\n    {\n        \"customerOrderId\": 8,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 35.29,\n        \"customer\": {\n            \"customerId\": 1,\n            \"customerName\": \"Alisson\",\n            \"customerAddress\": \"santiago texacuangos\",\n            \"customerDui\": \"\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 4,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 2,\n                    \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\n                    \"productPrice\": 22.3,\n                    \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\n                    \"productCategory\": \"men's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\n                },\n                \"customerOrderId\": 8\n            },\n            {\n                \"orderDetailId\": 5,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 20,\n                    \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n                    \"productPrice\": 12.99,\n                    \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 8\n            }\n        ]\n    },\n    {\n        \"customerOrderId\": 9,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 35.29,\n        \"customer\": {\n            \"customerId\": 2,\n            \"customerName\": \"Kevin Geovani \",\n            \"customerAddress\": \"Ciudad Delgado\",\n            \"customerDui\": \"000093\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 6,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 2,\n                    \"productTitle\": \"Mens Casual Premium Slim Fit T-Shirts \",\n                    \"productPrice\": 22.3,\n                    \"productDescription\": \"Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.\",\n                    \"productCategory\": \"men's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg\"\n                },\n                \"customerOrderId\": 9\n            },\n            {\n                \"orderDetailId\": 7,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 20,\n                    \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n                    \"productPrice\": 12.99,\n                    \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 9\n            }\n        ]\n    },\n    {\n        \"customerOrderId\": 10,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 20.94,\n        \"customer\": {\n            \"customerId\": 2,\n            \"customerName\": \"Kevin Geovani \",\n            \"customerAddress\": \"Ciudad Delgado\",\n            \"customerDui\": \"000093\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 8,\n                \"quantity\": 6,\n                \"product\": {\n                    \"productId\": 19,\n                    \"productTitle\": \"Opna Women's Short Sleeve Moisture\",\n                    \"productPrice\": 7.95,\n                    \"productDescription\": \"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 10\n            },\n            {\n                \"orderDetailId\": 9,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 20,\n                    \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n                    \"productPrice\": 12.99,\n                    \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 10\n            }\n        ]\n    },\n    {\n        \"customerOrderId\": 11,\n        \"customerOrderDate\": \"2024-01-01\",\n        \"customerOrderPrice\": 99.66,\n        \"customer\": {\n            \"customerId\": 2,\n            \"customerName\": \"Kevin Geovani \",\n            \"customerAddress\": \"Ciudad Delgado\",\n            \"customerDui\": \"000093\",\n            \"customerNumber\": \"8888888\"\n        },\n        \"detail\": [\n            {\n                \"orderDetailId\": 10,\n                \"quantity\": 6,\n                \"product\": {\n                    \"productId\": 19,\n                    \"productTitle\": \"Opna Women's Short Sleeve Moisture\",\n                    \"productPrice\": 7.95,\n                    \"productDescription\": \"100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 11\n            },\n            {\n                \"orderDetailId\": 11,\n                \"quantity\": 4,\n                \"product\": {\n                    \"productId\": 20,\n                    \"productTitle\": \"DANVOUY Womens T Shirt Casual Cotton Short\",\n                    \"productPrice\": 12.99,\n                    \"productDescription\": \"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.\",\n                    \"productCategory\": \"women's clothing\",\n                    \"productImage\": \"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg\"\n                },\n                \"customerOrderId\": 11\n            }\n        ]\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "shopping-cart",
+					"item": [
+						{
+							"name": "save product to shopping cart",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"productId\": 13,\r\n        \"productTitle\": \"Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin\",\r\n        \"productPrice\": 599,\r\n        \"productDescription\": \"21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz\",\r\n        \"productCategory\": \"electronics\",\r\n        \"productImage\": \"https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg\",\r\n        \"quantity\": 5,\r\n        \"userId\": 1\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8092/shopping-cart",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"shopping-cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "shopping cart by customer",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8092/shopping-cart/user/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8092",
+									"path": [
+										"shopping-cart",
+										"user",
+										"1"
 									]
 								}
 							},
